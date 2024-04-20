@@ -1,0 +1,51 @@
+{
+  "name": "bunty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/entry.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --ext \".ts\" --exec \"ts-node -r tsconfig-paths/register -r dotenv-flow/config src/entry.ts\"",
+    "fmt": "prettier --write \"src/**/*.{ts,md,yaml,yml}\"",
+    "fmt::check": "prettier --check \"src/**/*.{ts,md,yaml,yml}\"",
+    "types::check": "tsc --noEmit",
+    "types::build": "tsc",
+    "quality": "pnpm types::check && pnpm fmt::check"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/arangodb": "^3.5.22",
+    "@types/getenv": "^1.0.3",
+    "@types/koa": "^2.15.0",
+    "@types/koa-pino-logger": "^3.0.4",
+    "@types/koa-router": "^7.4.8",
+    "@types/koa-static": "^4.0.4",
+    "@types/node": "^20.12.7",
+    "@types/ramda": "^0.29.12",
+    "dotenv-flow": "^4.1.0",
+    "nodemon": "^3.1.0",
+    "pino-pretty": "^11.0.0",
+    "prettier": "^3.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@ladjs/koa-views": "^9.0.0",
+    "arangojs": "^8.8.1",
+    "bullmq": "^5.7.3",
+    "getenv": "^1.0.0",
+    "htmling": "^0.0.8",
+    "ioredis": "^5.4.1",
+    "koa": "^2.15.3",
+    "koa-body": "^6.0.1",
+    "koa-pino-logger": "^4.0.0",
+    "koa-router": "^12.0.1",
+    "koa-static": "^5.0.0",
+    "pino": "^8.20.0",
+    "ramda": "^0.29.1",
+    "tsconfig-paths": "^4.2.0",
+    "zod": "^3.22.5"
+  }
+}

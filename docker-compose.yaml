@@ -1,0 +1,13 @@
+services:
+  datastore:
+    image: arangodb:3.10
+    ports:
+      - "9999:8529"
+    environment:
+      ARANGO_ROOT_PASSWORD: ou812
+  
+  cache:
+    image: redis:7.2
+    command: redis-server --requirepass ou812
+    ports:
+      - "9998:6379"

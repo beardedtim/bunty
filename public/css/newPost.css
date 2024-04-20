@@ -1,0 +1,50 @@
+body > main {
+    justify-content: unset;
+    align-items: unset;
+    padding: calc(4 * var(--padding));
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#newPost {
+    padding: calc(4 * var(--padding));
+}
+
+#newPost fieldset {
+    padding: calc(2 * var(--padding));
+    margin-bottom: calc(4 * var(--padding));
+}
+
+.input_group {
+    margin-bottom: calc(4 * var(--padding));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#newPost .range-options {
+    padding: var(--padding);
+    font-weight: 100;
+    width: 100%;
+    box-shadow: none;    
+}
+
+
+.input_group label {
+    margin-bottom: calc(2 * var(--padding));
+}
+
+.input_group input,
+.input_group textarea {
+    width: 95%;
+}
+
+#title {
+    font-size: 2.25rem;
+    padding: calc(2 * var(--padding));
+}
+
+.button-group button:not(:last-of-type) {
+    margin-right: calc(2 * var(--padding));
+}

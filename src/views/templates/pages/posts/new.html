@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/shared.css" />
+    <link rel="stylesheet" href="/css/newPost.css" />
+
+</head>
+
+<body>
+    <header id="siteHeader">
+        <a href="/" id="siteName">
+            <h1>Bunty</h1>
+        </a>
+        <nav id="siteNav">
+            <a href="/posts" title="View your recent Posts">
+                Posts
+            </a>
+        </nav>
+    </header>
+    <main>
+        <h2>Hello {{actor.name}}. What's on your mind?</h2>
+        <form id="newPost">
+            <fieldset id="mood">
+                <legend for="mood">
+                    Mood
+                </legend>
+                <div class="input_group range">
+                    <label for="level">Level</label>
+                    <input id="level" min={{-5}} max={{5}} step={{1}} defaultValue={{0}} type="range" required
+                        name="mood.level" />
+                    <div class="range-options">
+                        <p>Extremely Negative</p>
+                        <p>Extremely Positive</p>
+                    </div>
+                </div>
+                <div class="input_group ">
+                    <label for="description">Description</label>
+                    <textarea rows={{10}} id="description" name="mood.description" required></textarea>
+                </div>
+            </fieldset>
+            <fieldset id="post">
+                <legend for="post">
+                    Post
+                </legend>
+                <div class="input_group">
+                    <label for="title">Title</label>
+                    <input id="title" type="text" required
+                        name="post.title" />
+                </div>
+                <div class="input_group ">
+                    <label for="body">Post Body (can include markup)</label>
+                    <textarea rows={{20}} id="body" name="post.body" required></textarea>
+                </div>
+            </fieldset>
+            <div class="button-group">
+                <button type="submit">
+                    Create Post
+                </button>
+                <button type="reset">
+                    Clear Post
+                </button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        Copyright &copy; McK-P, 2024 - Present
+    </footer>
+</body>
+</html>
+<script>
+    window.addEventListener('load', () => {
+        const form = document.getElementById('newPost')
+
+        form.addEventListener('submit', async e => {
+            e.preventDefault()
+            const data = new FormData(e.currentTarget)
+
+            const post = {
+                title: data.get('post.title'),
+                body: data.get('post.body')
+            }
+            const mood = {
+                level: Number(data.get('mood.level')),
+                description: data.get('mood.description')
+            }
+            console.log(mood, 'mood')
+            const result = await fetch("/api/v1/posts", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ post, mood })
+            }).then(x => x.json())
+
+            form.reset()
+
+            window.location.href = "/"
+        })
+    })
+</script>
