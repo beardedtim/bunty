@@ -5,7 +5,6 @@ import Logger from '@app/infra/log'
 import { Queues } from '@app/connections/queues'
 import * as Cache from '@app/connections/cache'
 import { Database } from 'arangojs'
-import { render } from '@app/views'
 
 export type Context = {
   log: typeof Logger

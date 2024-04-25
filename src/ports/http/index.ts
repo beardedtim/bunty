@@ -3,6 +3,8 @@ import Koa from 'koa'
 import BodyParser from 'koa-body'
 import ReqLogger from 'koa-pino-logger'
 import Static from 'koa-static'
+import ConditionalGet from 'koa-conditional-get'
+import ETag from 'koa-etag'
 
 import { getDb } from '@app/connections/datastore'
 import * as Cache from '@app/connections/cache'
@@ -45,7 +47,7 @@ const applyRoutes = (app: AppType): AppType =>
   app.use(Router.routes()).use(Router.allowedMethods()) as any as AppType
 
 const applyStaticRendering = (app: AppType): AppType =>
-  app.use(Static(PUBLIC_DIR))
+  app.use(ConditionalGet()).use(ETag()).use(Static(PUBLIC_DIR))
 
 export const create = R.pipe(
   createBase,

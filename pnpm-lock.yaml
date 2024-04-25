@@ -29,6 +29,12 @@ dependencies:
   koa-body:
     specifier: ^6.0.1
     version: 6.0.1
+  koa-conditional-get:
+    specifier: ^3.0.0
+    version: 3.0.0
+  koa-etag:
+    specifier: ^4.0.0
+    version: 4.0.0
   koa-pino-logger:
     specifier: ^4.0.0
     version: 4.0.0
@@ -61,6 +67,12 @@ devDependencies:
   '@types/koa':
     specifier: ^2.15.0
     version: 2.15.0
+  '@types/koa-conditional-get':
+    specifier: ^2.0.3
+    version: 2.0.3
+  '@types/koa-etag':
+    specifier: ^3.0.3
+    version: 3.0.3
   '@types/koa-pino-logger':
     specifier: ^3.0.4
     version: 3.0.4
@@ -477,6 +489,12 @@ packages:
       '@types/keygrip': 1.0.6
       '@types/node': 20.12.7
 
+  /@types/etag@1.8.3:
+    resolution: {integrity: sha512-QYHv9Yeh1ZYSMPQOoxY4XC4F1r+xRUiAriB303F4G6uBsT3KKX60DjiogvVv+2VISVDuJhcIzMdbjT+Bm938QQ==}
+    dependencies:
+      '@types/node': 20.12.7
+    dev: true
+
   /@types/express-serve-static-core@4.19.0:
     resolution: {integrity: sha512-bGyep3JqPCRry1wq+O5n7oiBgGWmeIJXPjXXCo8EK0u8duZGSYar7cGqd3ML2JUsLGeB7fmc06KYo9fLGWqPvQ==}
     dependencies:
@@ -518,6 +536,19 @@ packages:
     resolution: {integrity: sha512-4Olc63RY+MKvxMwVknCUDhRQX1pFQoBZ/lXcRLP69PQkEpze/0cr8LNqJQe5NFb/b19DWi2a5bTi2VAlQzhJuA==}
     dependencies:
       '@types/koa': 2.15.0
+
+  /@types/koa-conditional-get@2.0.3:
+    resolution: {integrity: sha512-JhUuS9Qj5uyU7HHAmUC1L+Erft73m7AQD3jjIyB2audnTsQObp3w0aY4yO8mZ3W7RBpyrhY2TPH10mBdQYRFrQ==}
+    dependencies:
+      '@types/koa': 2.15.0
+    dev: true
+
+  /@types/koa-etag@3.0.3:
+    resolution: {integrity: sha512-pOtRwgJOyP5XWoKUQpvvGbihep7ZoCQwJiFhZ2PdAjmXhgDFm5bbX9vYbXCwLIWG+WUb8CsOCf+78uae0Ho5sg==}
+    dependencies:
+      '@types/etag': 1.8.3
+      '@types/koa': 2.15.0
+    dev: true
 
   /@types/koa-pino-logger@3.0.4:
     resolution: {integrity: sha512-rjXihDguqIbisctje6soD6KSUgdRM97uLfcyL0hQyv2aewTa55ZReRrP481hZUZ7C2BIgscN5xS9QLG/SdWZ3Q==}
@@ -1212,6 +1243,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
+  /etag@1.8.1:
+    resolution: {integrity: sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==}
+    engines: {node: '>= 0.6'}
+    dev: false
+
   /event-target-shim@5.0.1:
     resolution: {integrity: sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==}
     engines: {node: '>=6'}
@@ -1690,12 +1726,22 @@ packages:
     resolution: {integrity: sha512-8ODW8TrDuMYvXRwra/Kh7/rJo9BtOfPc6qO8eAfC80CnCvSjSl0bkRM24X6/XBBEyj0v1nRUQ1LyOy3dbqOWXw==}
     dev: false
 
+  /koa-conditional-get@3.0.0:
+    resolution: {integrity: sha512-VKyPS7SuNH26TjTV2IRz+oh0HV/jc2lYAo51PTQTkj0XFn8ebNZW9riczmrW7ZVBFSnls1Z88DPUYKnvVymruA==}
+    dev: false
+
   /koa-convert@2.0.0:
     resolution: {integrity: sha512-asOvN6bFlSnxewce2e/DK3p4tltyfC4VM7ZwuTuepI7dEQVcvpyFuBcEARu1+Hxg8DIwytce2n7jrZtRlPrARA==}
     engines: {node: '>= 10'}
     dependencies:
       co: 4.6.0
       koa-compose: 4.1.0
+    dev: false
+
+  /koa-etag@4.0.0:
+    resolution: {integrity: sha512-1cSdezCkBWlyuB9l6c/IFoe1ANCDdPBxkDkRiaIup40xpUub6U/wwRXoKBZw/O5BifX9OlqAjYnDyzM6+l+TAg==}
+    dependencies:
+      etag: 1.8.1
     dev: false
 
   /koa-pino-logger@4.0.0:

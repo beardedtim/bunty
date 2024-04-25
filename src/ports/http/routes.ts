@@ -48,7 +48,6 @@ const NewPostDTO = z.object({
 })
 
 export const createPost: Middleware = async (ctx) => {
-  console.log(ctx.request.body, 'REQUEST')
   const { post, mood } = NewPostDTO.parse(ctx.request.body)
 
   const savedPost = await Posts.create({
